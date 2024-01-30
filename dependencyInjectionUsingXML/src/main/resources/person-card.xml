@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+	<bean id="myPerson" class="org.mk.person_card.dto.person">
+		<constructor-arg name="card">
+			<bean class="org.mk.person_card.dto.Aadharcard">
+				<property name="name" value="Sai" />
+				<property name="number" value="98765456788" />
+
+			</bean>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="Person" class="org.mk.person_card.dto.person">
+	<constructor-arg name="card" ref="card"></constructor-arg>
+	</bean>
+	<bean id="card" class="org.mk.person_card.dto.Aadharcard">
+	<property name="name" value="Ajay"/>
+	<property name="number" value="3456789876"/>
+	</bean>
+</beans>
